@@ -1,2 +1,0 @@
-Place         Player   Time  Strikes    Score
-    1         Mystyk 30.56s       10  -5728.0
