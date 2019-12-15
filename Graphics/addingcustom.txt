@@ -1,0 +1,11 @@
+    _______
+    |     |
+    |     o
+    |    /|\
+    |    / \
+   / \ 
+  /   \
+ /     \
+Type '/back' to return to previous screen
+(Length of the word should be 3-15 characters, no special characters allowed)
+Enter your custom word: 
