@@ -147,9 +147,9 @@ def score(nick, time, strikes):
         with open("leaderboard.txt", "w") as referee:
             playerlistw = sorted(playerlistr, key=itemgetter(4), reverse = True)
             count = 1
-            referee.write("Place".rjust(5) + "Player".rjust(15)+"Time".rjust(7) + "Strikes".rjust(9) + "Score".rjust(9) + "\n")
+            referee.write("Place".rjust(5) + "Player".rjust(15)+"Time".rjust(8) + "Strikes".rjust(9) + "Score".rjust(9) + "\n")
             for player in playerlistw:
-                referee.write(str(count).rjust(5) + player[1].rjust(15) + player[2].rjust(7) + player[3].rjust(9) + player[4].rjust(9))
+                referee.write(str(count).rjust(5) + player[1].rjust(15) + player[2].rjust(8) + player[3].rjust(9) + player[4].rjust(9))
                 count += 1
                 if count <= len(playerlistw):
                     referee.write("\n")
