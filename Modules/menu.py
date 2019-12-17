@@ -47,9 +47,12 @@ def menumenagement(loc = "mainmenu", choice = ""):
         nick = str(input())
         if len(nick) > 15:
             print("Your nick is too long. Enter a shorter one:")
-            menumenagement(loc)
+            time.sleep(1.5)
+            return localization
         elif len(nick) < 1:
             print("Your nick is too short. Enter a longer one:")
+            time.sleep(1.5)
+            return localization
         game = True
         while game:
             game = match.matchsetup(timelimit = True, nick = nick)

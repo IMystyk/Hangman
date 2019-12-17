@@ -180,6 +180,8 @@ def match(word, timedisplay, timelimit, limit, nick, pvp = False, player = 0, st
     while strikes < 11:
         miss = 1
         display.matchUI(strikes, word, correct, incorrect, player = player)
+        if pvp:
+            print("WORD:\n", word)
         if checkword(word, correct):
             break
         guess = str(msvcrt.getch(), "utf-8")
@@ -207,6 +209,8 @@ def match(word, timedisplay, timelimit, limit, nick, pvp = False, player = 0, st
             gametime = ptime + time.time() - start_time
             display.matchUI(strikes, word, correct, incorrect, player=player)
             time.sleep(1)
+            if checkword(word, correct):
+                break
             return word, timedisplay, timelimit, limit, nick, pvp, player, strikes, correct, incorrect, gametime, False
     if not nextgame and not pvp:
         return nextgame
@@ -258,7 +262,7 @@ def match(word, timedisplay, timelimit, limit, nick, pvp = False, player = 0, st
     print("\nPress enter to start next match")
     input()
     if pvp:
-        return word, timedisplay, timelimit, limit, nick, pvp, player, strikes, correct, incorrect, finaltime, True
+        return word, timedisplay, timelimit, limit, nick, pvp, player, strikes, correct, incorrect, finaltime, True, False
     return nextgame
 
 class PvP:
@@ -275,7 +279,6 @@ class PvP:
         self.correct = correct
         self.incorrect = incorrect
         self.gametime = gametime
-
     def read(self):
         return match(self.word, self.timedisplay, self.timelimit, self.limit, self.nick, self.pvp, self.player, self.strikes, self.correct, self.incorrect, self.gametime)
 
@@ -291,18 +294,20 @@ def PvPmatch():
         match2 = PvP(temp2[0], temp2[1], temp2[2], temp2[3], temp2[4], temp2[5], temp2[6], temp2[7], temp2[8], temp2[9], temp2[10])
 
         while True:
-            temp1 = list(match1.read())
             match1 = PvP(temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6], temp1[7], temp1[8], temp1[9], temp1[10])
+            temp1 = list(match1.read())
             if temp1[11]:
                 break
             temp2 = list(match2.read())
             match2 = PvP(temp2[0], temp2[1], temp2[2], temp2[3], temp2[4], temp2[5], temp2[6], temp2[7], temp2[8], temp2[9], temp2[10])
             if temp2[11]:
                 break
-        if temp1[12]:
-            break
-        if temp2[12]:
-            break
+        try:
+            if temp1[12]:
+                break
+        except IndexError:
+            if temp2[12]:
+                break
 
 
 
