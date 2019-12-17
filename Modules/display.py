@@ -41,7 +41,7 @@ def matchUI(strikes, word, valid, invalid, displayword = False, player = 0):
         print(" " * 38, "PLAYER 2")
         cons.set_text_attr(default_colors)
     if player == 0:
-        with open("Graphics\\"+"error"+str(strikes)+".txt", "r") as printer:
+        with open("Graphics\\"+"strike"+str(strikes)+".txt", "r") as printer:
             for line in printer:
                 print(" "*35 + line, end='')
         printer.close()
@@ -52,7 +52,7 @@ def matchUI(strikes, word, valid, invalid, displayword = False, player = 0):
         default_fg = default_colors & 0x0007
         cons.set_text_attr(cons.FOREGROUND_BLUE | default_bg |
                            cons.FOREGROUND_INTENSITY)
-        with open("Graphics\\"+"error"+str(strikes)+".txt", "r") as printer:
+        with open("Graphics\\"+"strike"+str(strikes)+".txt", "r") as printer:
             for line in printer:
                 print(" "*35 + line, end='')
         printer.close()
@@ -64,7 +64,7 @@ def matchUI(strikes, word, valid, invalid, displayword = False, player = 0):
         default_fg = default_colors & 0x0007
         cons.set_text_attr(cons.FOREGROUND_YELLOW | default_bg |
                            cons.FOREGROUND_INTENSITY)
-        with open("Graphics\\" + "error" + str(strikes) + ".txt", "r") as printer:
+        with open("Graphics\\" + "strike" + str(strikes) + ".txt", "r") as printer:
             for line in printer:
                 print(" " * 35 + line, end='')
         printer.close()
