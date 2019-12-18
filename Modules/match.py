@@ -180,8 +180,6 @@ def match(word, timedisplay, timelimit, limit, nick, pvp = False, player = 0, st
     while strikes < 11:
         miss = 1
         display.matchUI(strikes, word, correct, incorrect, player = player)
-        if pvp:
-            print("WORD:\n", word)
         if checkword(word, correct):
             break
         guess = str(msvcrt.getch(), "utf-8")
