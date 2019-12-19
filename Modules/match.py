@@ -282,7 +282,7 @@ def chooseletter(correct, incorrect, length, difficulty = 'normal'):
     return final[winner]
 
 
-def match(word, timedisplay, timelimit, limit, nick, pvp = False, player = 3, st = 0, cor = "", incor = "", ptime = 0, difficulty = 'normal'):
+def match(word, timedisplay, timelimit, limit, nick, pvp = False, player = 0, st = 0, cor = "", incor = "", ptime = 0, difficulty = 'normal'):
     """This function menages the match"""
     strikes = st
     correct = cor
