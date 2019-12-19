@@ -7,8 +7,9 @@
   /   \
  /     \
  Select difficulty level
- 1.Easy
- 2.Normal
- 3.Hard
- 4.Impossible
- 5.Back
+ 1.Normal
+ 2.Competitive
+ 3.Custome game
+ 4.PvP
+ 5.PvE
+ 6.Back
