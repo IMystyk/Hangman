@@ -11,7 +11,7 @@ def menumenagement(loc = "mainmenu", choice = ""):
     localization = loc
     if loc == "mainmenu":
         if choice == "1":
-            localization = "difficultyselection"
+            localization = "gamemode"
         elif choice == "2":
             localization = "leaderboard"
         elif choice == "3":
@@ -19,7 +19,7 @@ def menumenagement(loc = "mainmenu", choice = ""):
             return localization
         else:
             return loc
-    elif loc == "difficultyselection":
+    elif loc == "gamemode":
         if choice == "1": # normal
             localization = "match"
             game = True
@@ -36,8 +36,23 @@ def menumenagement(loc = "mainmenu", choice = ""):
             localization = "PvP"
             match.PvPmatch()
             localization = "mainmenu"
-        elif choice == "5": # back
+        elif choice == "5": # PvE
+            localization = "difficultyselection"
+        elif choice == "6": # back
             localization = "mainmenu"
+        else:
+            return localization
+    elif loc == "difficultyselection":
+        if choice == "1":
+            match.PvPmatch(player2 = 3, difficulty = 'easy')
+        elif choice == "2":
+            match.PvPmatch(player2 = 3, difficulty = 'normal')
+        elif choice == "3":
+            match.PvPmatch(player2 = 3, difficulty = 'hard')
+        elif choice == "4":
+            match.PvPmatch(player2 = 3, difficulty = 'impossible')
+        elif choice == "5":
+            localization = "gamemode"
         else:
             return localization
     elif loc == "leaderboard":
@@ -47,12 +62,9 @@ def menumenagement(loc = "mainmenu", choice = ""):
         nick = str(input())
         if len(nick) > 15:
             print("Your nick is too long. Enter a shorter one:")
-            time.sleep(1.5)
-            return localization
+            menumenagement(loc)
         elif len(nick) < 1:
             print("Your nick is too short. Enter a longer one:")
-            time.sleep(1.5)
-            return localization
         game = True
         while game:
             game = match.matchsetup(timelimit = True, nick = nick)
@@ -82,7 +94,7 @@ def custom_settings(loc = "custommenu"):
     timedisplay = True
     timelimit = False
     limit = 120
-    while loc != "difficultyselection":
+    while loc != "gamemode":
         display.printer(loc)
         print('')  # this print only exists so that last line of the file is printed before select triggers
         select = str(msvcrt.getch(), "utf-8")
@@ -149,7 +161,7 @@ def custom_settings(loc = "custommenu"):
                 else:
                     pass
         elif select == "4":
-            loc = "difficultyselection"
+            loc = "gamemode"
         else:
             pass
 

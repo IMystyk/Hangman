@@ -40,6 +40,14 @@ def matchUI(strikes, word, valid, invalid, displayword = False, player = 0):
                            cons.FOREGROUND_INTENSITY)
         print(" " * 38, "PLAYER 2")
         cons.set_text_attr(default_colors)
+    elif player == 3:
+        default_colors = cons.get_text_attr()
+        default_bg = default_colors & 0x0070
+        default_fg = default_colors & 0x0007
+        cons.set_text_attr(cons.FOREGROUND_YELLOW | default_bg |
+                           cons.FOREGROUND_INTENSITY)
+        print(" " * 38, "COMPUTER")
+        cons.set_text_attr(default_colors)
     if player == 0:
         with open("Graphics\\"+"strike"+str(strikes)+".txt", "r") as printer:
             for line in printer:
@@ -58,7 +66,7 @@ def matchUI(strikes, word, valid, invalid, displayword = False, player = 0):
         printer.close()
         print("\n")
         cons.set_text_attr(default_colors)
-    elif player == 2:
+    elif player == 2 or player == 3:
         default_colors = cons.get_text_attr()
         default_bg = default_colors & 0x0070
         default_fg = default_colors & 0x0007
